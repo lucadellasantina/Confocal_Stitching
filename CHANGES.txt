@@ -1,0 +1,95 @@
+2.2.8  Updated ProgressBar to avoid any() function (which now doesn't work) and
+         to render better under new graphics regime
+       Updated Viewstack.fig to draw better in new graphics regime
+
+2.2.7  Updated ParallelBlock, ParallelIsActive to be compatible with new
+         interface to parallel toolbox
+
+2.2.6  Removed a ProgressBar inner loop that was very fast
+
+2.2.5  Big speed improvement on loading large image stacks
+       Bugfix: Progress bar misestimated time on inner loops
+
+2.2.4  Replaced PopupProgress with ProgressBar to prevent focus-stealing when
+         loading in a new data set
+       Bugfix: Save_OME_TIFF should work better
+
+2.2.3  Made hack-ish export of stitched/downsampled/cropped stacks into
+         ome-tiff format
+       Bugfix: could not accurately load slice images due to numerous problems
+         with metadata when loading in .lif files
+
+2.2.2  Bugfix: warning instead of error when metadata has missing unit
+         description
+       Bugfix: axesZY was not always redrawn when it should have been
+
+2.2.1  Bugfix: able to see/open all stacks in newer Leica .lif files
+       Bugfix: remove log4j warning by properly initializing logging
+       Upgraded to loci_tools version 4.4.6
+
+2.2.0  Moved to latest version of loci_tools.jar (4.4.5)
+       Improved handling of files not scanned sequentially
+       Added support for stacks scanned at different times (simply treat them
+         as unrelated stacks)
+       Bugfix: OpenStack_lif.m::getSlice functions never used rect
+
+2.1.9  Bugfix: Stitching stacks crashed when z interpolation was required
+
+2.1.8  Changed projections to use 8-bit compressed tifs
+       Bugfix: sometimes channel list did not render properly when
+         "Group Channels" was re-checked
+       Bugfix: typo in StitchStacks.m caused crash
+       Bugfix: transparency didn't work with color projections
+
+2.1.7  Bugfix: readerLOCI not passed appropriately opening .lif files
+       Removed printed progress updates when making projections
+       Removed Toc.m from project
+
+2.1.6  Bugfix: StitchStacks.m did not interpolate XY correctly
+
+2.1.5  Bugfixes: multiple to correcct errors opening .lei files
+         changes to OpenStack_lei.m, GetChannelColor.m
+       Bugfix: AlignStacks.m improperly resized projections
+       Bugfix: (sorta) readerLOCI objects weren't being properly made global
+               solved by passing them as function arguments in some cases,
+               redefining in others
+
+2.1.4  Bugfix: Button screw-ups in ViewStack on Mac fixed by using position
+         based on pixels instead of characters
+       Bugfix: Viewstack now displays slice number correctly upon opening
+
+2.1.3  Bugfix: Add RealUnderscores.m to project
+       in ConfocalColorChooser.m when setting UserData, use hObject instead of
+         handles.ConfocalColorChooser
+
+2.1.2  More bugfixes
+       Added more progress indicators
+       Better handling of the java heap filling up
+         -Adjust MetadataObj class to create only one metadata object at a time,
+           call OpenMetadata to get the metadata from a file
+         -Catch error from filling the heap, clean up, and continue
+         -Popup message indicating what's going on
+         -Reduce message text printed to matlab command window
+       Redraw main confocal window after stitching
+
+2.1.1  Multiple bugfixes
+       Added backwards compatibility with very old stack types
+       Added parfor loops
+       Added parallel-compatibility with PopupProgress
+
+2.1.0  Faster opening of stacks by parsing metadata for all series in one pass
+
+2.0.14 Bug fix: crash when opening snapshots
+
+2.0.13 Bug fix: ParallelIsActive crashes when parallel toolkit not installed
+
+2.0.12 Add soft link to ParallelIsActive.m
+
+2.0.11 Remove uncalled files closeStack_lei.m, closeStack_lif.m
+
+2.0.10 Bug fix: Crash when opening sequential-mode scans that mix sequential
+        and non-sequential channels
+
+2.0.9  Corrected bug when opening weird non-sequential scan in sequential mode
+       Added CHANGES.txt
+       Removed some ancient items from ToDo.txt

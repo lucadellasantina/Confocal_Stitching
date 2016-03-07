@@ -1,0 +1,15 @@
+Problems/Changes
+ 1) Save image stats for stacks all in one file
+ 2) Save in open-source format, not my custom crap format (bfsave.m)
+ 3) Add ability to remove channels from projections
+     -Probably just remove from ViewStack
+     -In general, clean up/clarify projection options
+ 4) Bugfix: rapidly repeating any action that results in replotting
+            (e.g. removing channels) causes error
+ 5) On confocal main window, ability to zoom/pan
+ 6) Add ability to browse metadata for a stack/channel?
+ 7) Parallelize StitchStacks?
+    -Currently not possible because stackStats changes:
+      stackStats is used to interpolate in z without loading in each slice
+      multiple times
+    -At the moment, parallelized by channel
